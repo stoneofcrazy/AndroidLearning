@@ -4,12 +4,12 @@
         "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable/abc_btn_borderless_material.xml"
     },
     {
-        "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable/abc_ic_clear_material.xml",
-        "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable/abc_ic_clear_material.xml"
-    },
-    {
         "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable/abc_tab_indicator_material.xml",
         "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable/abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable/abc_ic_clear_material.xml",
+        "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable/abc_ic_clear_material.xml"
     },
     {
         "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable/abc_text_cursor_material.xml",
