@@ -60,12 +60,12 @@
         "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable-xxhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
-        "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
-        "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png",
         "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/drawable-xxhdpi-v4/abc_list_pressed_holo_dark.9.png",

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.fire.zhaowei.launchertest.R;
 import com.fire.zhaowei.launchertest.adapter.TestRecyclerViewAdapter;
 import com.fire.zhaowei.launchertest.my_interface.MyItemOnClickListener;
+import com.squareup.okhttp.OkHttpClient;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,9 @@ public class TestActivity extends Activity {
     private static final int EVENT_BUS = 2;
     private static final int ENCRYPTION_DECIPHERING = 3;
     private static final int IMAGEVIEW_LOADING = 4;
+    private static final int MAN_TEST = 5;
+    private static final int OK_HTTP = 6;
+    private static final int TEST = 7;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,9 @@ public class TestActivity extends Activity {
         mTestData.add("EventBus");      //发布和订阅事件到总线
         mTestData.add("KMP算法");//仿漫咖加解密
         mTestData.add("图片异步加载及4.4以后版本注意事项");//仿漫咖加解密
+        mTestData.add("自定义View");
+        mTestData.add("OKHTTP访问网络");
+        mTestData.add("TEST");
         mViewList = new RecyclerView(TestActivity.this);
         mViewList.setLayoutManager(new LinearLayoutManager(TestActivity.this));
         adapter = new TestRecyclerViewAdapter(TestActivity.this, mTestData, new MyItemOnClickListener() {
@@ -97,6 +104,15 @@ public class TestActivity extends Activity {
                 break;
             case IMAGEVIEW_LOADING:
                 intent.setClass(TestActivity.this, ImageViewLoadingActivity.class);
+                break;
+            case MAN_TEST:
+                intent.setClass(TestActivity.this, ManTestActivity.class);
+                break;
+            case OK_HTTP:
+                intent.setClass(TestActivity.this, OkHttpClientActivity.class);
+                break;
+            case TEST:
+                intent.setClass(TestActivity.this, Test.class);
                 break;
         }
         startActivity(intent);

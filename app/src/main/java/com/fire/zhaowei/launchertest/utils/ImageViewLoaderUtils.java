@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * 设置图片
  */
 public class ImageViewLoaderUtils {
-
+    private static final String TAG = "image_loader_task";
     public static ArrayList<ImageView> sImageTask = new ArrayList<>();
 
     private static int mThreadNum = 3;
@@ -58,7 +58,8 @@ public class ImageViewLoaderUtils {
             }
             if (mRunningThreadNum < mThreadNum){
                 mRunningThreadNum++;
-                new Thread(new ImageViewLoaderRunnable(context, sHandler)).start();
+                TaskUtils.executeTask(TAG, new ImageViewLoaderRunnable(context, sHandler));
+//                new Thread(new ImageViewLoaderRunnable(context, sHandler)).start();
             }
         }
 

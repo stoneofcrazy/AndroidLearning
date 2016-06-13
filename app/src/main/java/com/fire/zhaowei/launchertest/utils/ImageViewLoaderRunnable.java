@@ -26,7 +26,7 @@ import java.security.NoSuchAlgorithmException;
  * Created by zhaowei on 16/5/19.
  * 下载图片并缓存到某个文件夹
  */
-public class ImageViewLoaderRunnable implements Runnable {
+public class ImageViewLoaderRunnable extends AbstractTask {
     private Context context;
     public static final int SET_IMAGE_VIEW = 0x01;
     private static final int TIMEOUT = 5 * 1000;//超时时间
@@ -47,7 +47,7 @@ public class ImageViewLoaderRunnable implements Runnable {
     }
 
     @Override
-    public void run() {
+    protected void work() {
         try {
             int length;
             do {
@@ -88,13 +88,11 @@ public class ImageViewLoaderRunnable implements Runnable {
     }
 
     private void saveFile(Bitmap bitmap) throws Exception{
-        File theFile = new File(mFilePath);
-        if(!theFile.exists()){
-            String dir = mFilePath.substring(0, mFilePath.lastIndexOf("/")+1);
-            File dirFile = new File(dir);
-            dirFile.mkdir();
-        } else {
-            return;
+        File theFile = new File(mFilePath.substring(0, mFilePath.lastIndexOf("/")), mFilePath.substring(mFilePath.lastIndexOf("/")+1, mFilePath.length()));
+        String state = Environment.getExternalStorageState();
+        Log.e("z", state);
+        if (!theFile.exists()) {
+            theFile.createNewFile();
         }
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(theFile));
         bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bos);
@@ -119,11 +117,11 @@ public class ImageViewLoaderRunnable implements Runnable {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT){
                 result = Environment.getExternalStorageDirectory() + "/Android/data/" + context.getPackageName() + "/cache/download_test/" + img_name;
             } else {
-                File[] files = context.getExternalCacheDirs();
+                File[] files = context.getExternalFilesDirs(Environment.DIRECTORY_PICTURES);
                 if (files.length > 1) {
-                    result = context.getExternalCacheDirs()[1] + "/download_test/" + img_name;
+                    result = files[1].toString() + "/" + img_name;
                 } else {
-                    result = context.getExternalCacheDirs()[0] + "/download_test/" + img_name;
+                    result = files[0].toString() + "/" + img_name;
                 }
             }
         } else {
@@ -139,14 +137,27 @@ public class ImageViewLoaderRunnable implements Runnable {
             MessageDigest mdInst = MessageDigest.getInstance("MD5");
 
             byte[] md = mdInst.digest(btInput);
-            return md.toString();
+
+            return byteArrayToHex(md);
         } catch (Exception e){
             Log.e("EnCodesMD5", e.getMessage().toString());
         }
 
         return "null";
     }
-
+    public static String byteArrayToHex(byte[] byteArray) {
+        // 首先初始化一个字符数组，用来存放每个16进制字符
+        char[] hexDigits = {'0','1','2','3','4','5','6','7','8','9', 'A','B','C','D','E','F' };
+        char[] resultCharArray =new char[byteArray.length * 2];
+        // 遍历字节数组，通过位运算（位运算效率高），转换成字符放到字符数组中去
+        int index = 0;
+        for (byte b : byteArray) {
+            resultCharArray[index++] = hexDigits[b>>> 4 & 0xf];
+            resultCharArray[index++] = hexDigits[b& 0xf];
+        }
+        // 字符数组组合成字符串返回
+        return new String(resultCharArray);
+    }
     public static Bitmap getBitmapFromUrl(Context context, String url){
         return BitmapFactory.decodeFile(getFileName(context, url));
     }
