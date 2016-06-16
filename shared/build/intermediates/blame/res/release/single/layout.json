@@ -16,12 +16,12 @@
         "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/layout/abc_activity_chooser_view_list_item.xml"
-    },
-    {
         "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/layout/abc_search_view.xml",
         "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "/Users/zhaowei/StudioProjects/LauncherTest/shared/build/intermediates/res/merged/release/layout/notification_media_action.xml",

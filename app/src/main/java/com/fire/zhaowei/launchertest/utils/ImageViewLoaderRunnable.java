@@ -88,11 +88,10 @@ public class ImageViewLoaderRunnable extends AbstractTask {
     }
 
     private void saveFile(Bitmap bitmap) throws Exception{
-        File theFile = new File(mFilePath.substring(0, mFilePath.lastIndexOf("/")), mFilePath.substring(mFilePath.lastIndexOf("/")+1, mFilePath.length()));
-        String state = Environment.getExternalStorageState();
-        Log.e("z", state);
-        if (!theFile.exists()) {
-            theFile.createNewFile();
+        File theFile = new File(mFilePath);
+
+        if (theFile.exists()) {
+            return;
         }
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(theFile));
         bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bos);
@@ -118,7 +117,7 @@ public class ImageViewLoaderRunnable extends AbstractTask {
                 result = Environment.getExternalStorageDirectory() + "/Android/data/" + context.getPackageName() + "/cache/download_test/" + img_name;
             } else {
                 File[] files = context.getExternalFilesDirs(Environment.DIRECTORY_PICTURES);
-                if (files.length > 1) {
+                if (files.length > 1 && files[1] != null) {
                     result = files[1].toString() + "/" + img_name;
                 } else {
                     result = files[0].toString() + "/" + img_name;
@@ -159,6 +158,8 @@ public class ImageViewLoaderRunnable extends AbstractTask {
         return new String(resultCharArray);
     }
     public static Bitmap getBitmapFromUrl(Context context, String url){
-        return BitmapFactory.decodeFile(getFileName(context, url));
+        String name = getFileName(context, url);
+        if(!new File(name).exists()) return null;
+        return BitmapFactory.decodeFile(name);
     }
 }
